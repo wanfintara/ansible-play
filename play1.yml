@@ -2,8 +2,7 @@
 
 - name: play wawan
   hosts: localhost
-  connection: local
   become: yes
   roles:
     - unzip
-    # - nginx
+    - nginx

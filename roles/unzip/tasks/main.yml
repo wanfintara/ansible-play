@@ -1,6 +1,7 @@
 ---
 
 - name: install unzip
+  tags: unzip
   become: yes
   apt:
     name: unzip
