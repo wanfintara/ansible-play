@@ -1,0 +1,7 @@
+---
+
+- name: play wawan
+  host: ubuntu16
+  roles:
+    - unzip
+    # - nginx
