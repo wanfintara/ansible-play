@@ -1,7 +1,7 @@
 ---
 
 - name: play wawan
-  hosts: ubuntu16
+  hosts: ubuntu-xenial
   roles:
     - unzip
     # - nginx

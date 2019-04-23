@@ -1,5 +1,5 @@
-[ubuntu16]
-20.20.20.1
+[ubuntu-xenial]
+10.0.2.15
 
-[ubuntu18]
-20.20.20.2
+[ubuntu-bionic]
+10.0.2.15
