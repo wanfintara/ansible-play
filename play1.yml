@@ -3,7 +3,10 @@
 - name: play wawan
   hosts: localhost
   become: yes
+  tasks:
+    - name: Install andrewrothstein consul
+      command: ansible-galaxy install andrewrothstein.consul
   roles:
     - unzip
-    - nginx
-    - role: brianshumate.consul
+    - pip
+    - role: andrewrothstein.consul
