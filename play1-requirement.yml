@@ -1,0 +1,4 @@
+---
+
+- name: consul-role
+  src: https://github.com/andrewrothstein/ansible-consul.git
