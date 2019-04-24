@@ -7,6 +7,9 @@
   #   - name: Install andrewrothstein consul
   #     command: ansible-galaxy install andrewrothstein.consul
   roles:
+    # Note: this roles get from ./roles
     - unzip
     - pip
-    - role: andrewrothstein.consul
+    # Note: this roles get from ~/.ansible/roles
+    - role: ansible-consul
+    - role: ansible-consul-template
