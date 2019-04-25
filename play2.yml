@@ -1,0 +1,31 @@
+---
+
+- name: play 2
+  hosts: localhost
+  become: yes
+  roles:
+    - unzip
+    - pip
+    - role: brianshumate.consul
+      consul_user: consul
+      consul_group: consul
+      consul_group_name: consul
+      consul_node_role: server
+      consul_bootstrap_expect: true
+      consul_bootstrap_expect_value: 1
+      consul_bind_address: 100.100.100.10
+    # - role: entercloudsuite.consul
+    #   consul_version: 1.4.4
+    #   consul_config_validate: "{{ consul_user_home }}/bin/consul validate -config-format=json %s"
+    #   consul_configs:
+    #     main:
+    #       bind_addr: 100.100.100.10
+    #       client_addr: 0.0.0.0
+    #       node_name: "{{ ansible_hostname }}"
+    #       data_dir: "{{ consul_data_dir }}"
+    #       encrypt: "K8n07GA/ZoANSmJ5zkvgOg==" # generate with consul keygen
+    #       enable_syslog: true
+    #       datacenter: automium
+    #       server: true
+    #       ui: true
+    - entercloudsuite.consul-template

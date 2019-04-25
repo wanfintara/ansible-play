@@ -1,0 +1,5 @@
+---
+
+- src: brianshumate.consul
+- src: entercloudsuite.consul
+- src: entercloudsuite.consul-template
