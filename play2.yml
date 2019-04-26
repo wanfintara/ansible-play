@@ -26,6 +26,6 @@
     #       encrypt: "K8n07GA/ZoANSmJ5zkvgOg==" # generate with consul keygen
     #       enable_syslog: true
     #       datacenter: automium
-    #       server: true
+    #       server: true4
     #       ui: true
     - entercloudsuite.consul-template

@@ -1,0 +1,66 @@
+---
+
+- name: "Install unzip first"
+  become: yes
+  apt:
+    name: unzip
+    state: present
+
+- name: "Echo vars"
+  command: echo {{ use_consul }}
+  register: o1
+
+- debug: msg="{{ o1.stdout }}"
+
+- name: "Create temporary directory"
+  file: 
+    path: /tmp/consul
+    state: directory
+
+- debug: msg="{{ lookup('env', 'GS_ACCESS_KEY_ID')}}"
+
+- debug: msg="{{ lookup('env', 'GS_SECRET_ACCESS_KEY')}}"
+- name: "Download Consul from bucket"
+  gc_storage:
+    bucket: provision-cloud
+    object: consul_1.4.2_linux_amd64.zip
+    region: "asia-southeast1"
+    dest: "/tmp/consul/consul_1.4.2_linux_amd64.zip"
+    mode: get
+    gs_access_key: "{{ lookup('env', 'GS_ACCESS_KEY_ID') }}"
+    gs_secret_key: "{{ lookup('env', 'GS_SECRET_ACCESS_KEY') }}"
+
+- name: "Unarchive Consul"
+  become: yes
+  unarchive:
+    src: "/tmp/consul/consul_1.4.2_linux_amd64.zip"
+    dest: "/usr/local/bin/"
+
+- name: "Create consul config directory"
+  become: yes
+  file:
+    path: /etc/consul.d
+    mode: 0777
+    state: directory
+    
+
+- name: "Consul server configuration"
+  become: yes
+  template:
+    src: consul.json.j2
+    dest: /etc/consul.d/consul.json
+    mode: 0755
+
+- name: "Consul service configuration"
+  become: "yes"
+  template:
+    src: consul-server.service.j2
+    dest: /etc/systemd/system/consul-server.service
+    mode: 0755
+
+- name: "start server via systemd"
+  become: yes
+  systemd: 
+    name: consul-server
+    state: started
+    daemon_reload: yes
