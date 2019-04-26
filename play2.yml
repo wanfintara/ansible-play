@@ -6,6 +6,7 @@
   roles:
     - unzip
     - pip
+    - boto
     - consul-server
   vars:
     use_consul: "yes lets use consul"

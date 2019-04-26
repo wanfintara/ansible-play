@@ -1,0 +1,6 @@
+---
+
+- name: "Install boto"
+  become: true
+  pip:
+    name: boto
