@@ -7,3 +7,5 @@
     - unzip
     - pip
     - consul-server
+  vars:
+    use_consul: "yes lets use consul"
