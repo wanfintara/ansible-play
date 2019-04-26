@@ -1,6 +1,7 @@
 {
   "bootstrap": true,
-  "bind_addr": "{{ ansible_ssh_host }}",
+  {# "bind_addr": "{{ ansible_ssh_host }}", #}
+  "bind_addr": "{{ bind_ip }}",
   "datacenter": "{{ consul_dc_name }}",
   "data_dir": "/opt/consul",
   "log_level": "INFO",
