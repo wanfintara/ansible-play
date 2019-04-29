@@ -6,9 +6,9 @@
     name: unzip
     state: present
 
-- name: "Echo vars"
-  command: echo {{ use_consul }}
-  register: o1
+# - name: "Echo vars"
+#   command: echo {{ use_consul }}
+#   register: o1
 
 # - debug: msg="{{ o1.stdout }}"
 

@@ -6,11 +6,11 @@
     name: unzip
     state: present
 
-- name: "Echo vars"
-  command: echo {{ consul_node_name }}
-  register: o1
+# - name: "Echo vars"
+#   command: echo {{ consul_node_name }}
+#   register: o1
 
-- debug: msg="{{ o1.stdout }}"
+# - debug: msg="{{ o1.stdout }}"
 
 - name: "Create temporary directory"
   file: 

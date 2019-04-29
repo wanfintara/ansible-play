@@ -1,0 +1,24 @@
+---
+
+  - name: Test variable
+    hosts: 127.0.0.1
+    tasks: 
+      - name: Print variable
+        command: echo {{ programming }}
+        register: var1
+      
+      - debug: msg="{{ var1.stdout }}"
+
+      - name: Print variable 2
+        command: echo {{ name }}
+        register: var2
+      
+      - debug: msg="{{ var2.stdout }}"
+
+    vars:
+      name: wawan fintara
+      programming: ["a", "b", "c"]
+        # - golang
+        # - dart & flutter
+        # - vue & react
+
