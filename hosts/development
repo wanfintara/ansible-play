@@ -1,8 +1,8 @@
 [bionic1]
-127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true consul_node_name=consul-client1
+127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true
 
 [bionic2]
-127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true consul_node_name=consul-client2 bind_ip=11.11.11.13
+127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true 
 
 [localhost]
-127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true consul_node_name=consul-server-master bind_ip=11.11.11.11
+127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true 
