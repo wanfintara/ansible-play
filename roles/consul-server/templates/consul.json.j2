@@ -15,7 +15,7 @@
   },
 	"retry_join": [
 	{% for node in nodes %}
-		"{{ node }}"{{ "," if not loop.last }}
+		"{{ node }}"{{ "," if not node.last }}
 	{% endfor %}
 	]
 }
