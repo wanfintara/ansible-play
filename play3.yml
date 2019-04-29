@@ -7,7 +7,10 @@
         command: echo {{ programming }}
         register: var1
       
-      - debug: msg="{{ var1.stdout }}"
+      - debug: 
+          msg: "{{ item }}"
+        with_items: 
+          - "{{ programming }}"
 
       - name: Print variable 2
         command: echo {{ name }}
@@ -17,8 +20,8 @@
 
     vars:
       name: wawan fintara
-      programming: ["a", "b", "c"]
-        # - golang
-        # - dart & flutter
-        # - vue & react
+      programming: # ["a", "b", "c"]
+        - golang
+        - dart & flutter
+        - vue & react
 
