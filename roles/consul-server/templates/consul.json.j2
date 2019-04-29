@@ -3,7 +3,6 @@
   {# "bind_addr": "{{ ansible_ssh_host }}", #}
   "bind_addr": "{{ bind_ip }}",
   "datacenter": "{{ consul_dc_name }}",
-  "config_dir": "/etc/consul.d",
   "data_dir": "/opt/consul",
   "log_level": "INFO",
   "node_name": "{{ hostvars[inventory_hostname].group_names[0] }}",

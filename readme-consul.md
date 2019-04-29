@@ -21,3 +21,9 @@ When starting __Deployment Guide__, there are some basic it is better to be know
 - in __Configure systemd__ section, make sure `User` and `Group` value is correct
 
 - the filename in `consul.d` doesn't really matter, can use any name, but remember consul will load it alphabetically
+
+## Install Consul Ubuntu
+
+- sudo apt-add-repository ppa:ansible/ansible
+- sudo apt update
+- sudo apt install ansible
