@@ -6,7 +6,7 @@ After=network-online.target
 ConditionFileNotEmpty=/etc/consul.d/consul.json
 
 [Service]
-ExecStart=/usr/local/bin/consul agent -config-dir=/etc/consul.d {{ (consul_use_ui == 'true') | ternary('-ui', '') }}
+ExecStart=/usr/local/bin/consul agent -config-dir=/etc/consul.d {{ (consul_use_ui == 'true') | ternary('-ui', '') }} 
 ExecReload=/usr/local/bin/consul reload
 KillMode=process
 Restart=on-failure
