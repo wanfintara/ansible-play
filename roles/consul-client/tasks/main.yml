@@ -7,10 +7,10 @@
     state: present
 
 - name: "Echo vars"
-  command: echo {{ use_consul }}
+  command: echo {{ bind_ip }}
   register: o1
 
-# - debug: msg="{{ o1.stdout }}"
+- debug: msg="{{ o1.stdout }}"
 
 - name: "Create temporary directory"
   file: 
