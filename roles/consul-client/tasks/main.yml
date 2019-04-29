@@ -10,7 +10,7 @@
   command: echo {{ bind_ip }}
   register: o1
 
-- debug: msg="{{ bind_ip.stdout }}"
+- debug: msg="{{ o1.stdout }}"
 
 - name: "Create temporary directory"
   file: 
