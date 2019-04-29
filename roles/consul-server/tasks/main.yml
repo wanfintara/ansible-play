@@ -10,7 +10,7 @@
   command: echo {{ use_consul }}
   register: o1
 
-- debug: msg="{{ o1.stdout }}"
+# - debug: msg="{{ o1.stdout }}"
 
 - name: "Create temporary directory"
   file: 
@@ -40,7 +40,7 @@
   become: yes
   file:
     path: /etc/consul.d
-    mode: 0777
+    mode: 0755
     state: directory
     
 
