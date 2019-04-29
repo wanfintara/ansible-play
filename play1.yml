@@ -1,7 +1,7 @@
 ---
 
 - name: play wawan
-  hosts: localhost
+  hosts: bionic1
   become: yes
   # tasks:
   #   - name: Install andrewrothstein consul
@@ -10,6 +10,10 @@
     # Note: this roles get from ./roles
     - unzip
     - pip
+    - boto
+    - consul-server
     # Note: this roles get from ~/.ansible/roles
-    - role: ansible-consul
-    - role: ansible-consul-template
+    # - role: ansible-consul
+    # - role: ansible-consul-template
+  vars:
+    use_consul: "yes lets use consul"

@@ -1,8 +1,8 @@
-[ubuntu-xenial]
-10.0.2.15
+[bionic1]
+127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true consul_node_name=consul-server-master bind_ip=11.11.11.12
 
-[ubuntu-bionic]
-10.0.2.15
+[bionic2]
+127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true consul_node_name=consul-server-master bind_ip=11.11.11.13
 
 [localhost]
 127.0.0.1 ansible_connection=local consul_dc_name=angloo-dc consul_use_ui=true consul_node_name=consul-server-master bind_ip=11.11.11.11
