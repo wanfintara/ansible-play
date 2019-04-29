@@ -12,3 +12,4 @@
     use_consul: "yes lets use consul"
     bind_ip: "11.11.11.11"
     consul_node_name: "consul-server-master"
+    consul_dc_name: "angloo-dc"

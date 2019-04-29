@@ -7,7 +7,7 @@
     state: present
 
 - name: "Echo vars"
-  command: echo {{ bind_ip }}
+  command: echo {{ consul_node_name }}
   register: o1
 
 - debug: msg="{{ o1.stdout }}"
