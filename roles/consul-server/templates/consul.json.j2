@@ -13,8 +13,9 @@
   "telemetry": {
     "statsite_address": "127.0.0.1:2180"
   },
+	"retry_join": [
 	{% for node in nodes %}
-	"retry_join": "{{ node }}""
+		"{{ node }}" {{ "," if not loop.last }}
 	{% endfor %}
-  
+	]
 }
