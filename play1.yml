@@ -11,7 +11,7 @@
     - unzip
     - pip
     - boto
-    - consul-server
+    - consul-client
     # Note: this roles get from ~/.ansible/roles
     # - role: ansible-consul
     # - role: ansible-consul-template
