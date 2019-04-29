@@ -54,8 +54,8 @@
 - name: "Consul service configuration"
   become: "yes"
   template:
-    src: consul-server.service.j2
-    dest: /etc/systemd/system/consul-server.service
+    src: consul.service.j2
+    dest: /etc/systemd/system/consul.service
     mode: 0755
 
 - name: "start server via systemd"
