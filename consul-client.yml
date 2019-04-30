@@ -1,0 +1,15 @@
+---
+
+- name: Setup Consul Client
+  hosts: bionic2
+  become: yes
+  roles:
+    - unzip
+    - pip
+    - boto
+    - consul
+  vars:
+    bind_ip: 11.11.11.13
+    consul_node_name: client2
+    consul_dc_name: angloo-dc
+    consul_service_configuration: consul.client.service.j2

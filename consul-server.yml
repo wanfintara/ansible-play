@@ -1,19 +1,19 @@
 ---
 
-- name: play 2
+- name: Setup Consul Server
   hosts: localhost
   become: yes
   roles:
     - unzip
     - pip
     - boto
-    - consul-server
+    - consul
   vars:
-    use_consul: "yes lets use consul"
     bind_ip: 11.11.11.11
     consul_node_name: "consul-server-master"
     consul_dc_name: "angloo-dc"
-    nodes:
+    consul_service_configuration: consul.server.json.j2
+    client_nodes:
       - 10.10.10.10
       - 20.20.20.20
       - 30.30.30.30

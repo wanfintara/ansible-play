@@ -14,9 +14,9 @@
     "statsite_address": "127.0.0.1:2180"
   },
 	"retry_join": [
-	{% for node in nodes %}
+	{% for node in client_nodes %}
 		"{{ node }}"
-		{# {{ "," if not node.last }} #}
+		{# {{ "," if not node.last }} dunno why not working #} 
 		{% if not loop.last %}
     	,
 		{% endif %}

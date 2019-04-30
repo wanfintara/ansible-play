@@ -6,12 +6,6 @@
     name: unzip
     state: present
 
-# - name: "Echo vars"
-#   command: echo {{ use_consul }}
-#   register: o1
-
-# - debug: msg="{{ o1.stdout }}"
-
 - name: "Create temporary directory"
   file: 
     path: /tmp/consul
@@ -30,11 +24,13 @@
     gs_access_key: "GOOGZVSNZ2L5SDHLW2ZBWJ2K"
     gs_secret_key: "OxHIWafPWPQm57iSP4mzbyNDHvzRkhqtl0vm8Kkm"
 
+
 - name: "Unarchive Consul"
   become: yes
   unarchive:
     src: "/tmp/consul/consul_1.4.2_linux_amd64.zip"
     dest: "/usr/local/bin/"
+
 
 - name: "Create consul config directory"
   become: yes
@@ -44,21 +40,21 @@
     state: directory
     
 
-- name: "Consul server configuration"
+- name: "Consul configuration"
   become: yes
   template:
-    src: consul.json.j2
+    src: "{{ consul_configuration }}"
     dest: /etc/consul.d/consul.json
     mode: 0755
 
-- name: "Consul service configuration"
+- name: "Consul system service configuration"
   become: "yes"
   template:
-    src: consul.service.j2
+    src: "{{ consul_service_configuration }}"
     dest: /etc/systemd/system/consul.service
     mode: 0755
 
-- name: "start consul via systemd"
+- name: "Start consul via systemd"
   become: yes
   systemd: 
     name: consul
