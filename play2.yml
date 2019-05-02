@@ -5,3 +5,5 @@
   become: yes
   roles:
     - consul-template
+  vars_files: 
+    - secret.yml

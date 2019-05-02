@@ -21,8 +21,8 @@
     region: "asia-southeast1"
     dest: "/tmp/consul/consul_1.4.2_linux_amd64.zip"
     mode: get
-    gs_access_key: "GOOGZVSNZ2L5SDHLW2ZBWJ2K"
-    gs_secret_key: "OxHIWafPWPQm57iSP4mzbyNDHvzRkhqtl0vm8Kkm"
+    gs_access_key: gs_access_key
+    gs_secret_key: gs_secret_key
 
 
 - name: "Unarchive Consul"
