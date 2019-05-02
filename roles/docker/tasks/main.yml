@@ -1,0 +1,25 @@
+---
+
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Remove docker
+  become: true
+  apt:
+    name: docker
+    state: absent
+
+- name: Remove docker-engine
+  become: true
+  apt:
+    name: docker-engine
+    state: absent
+
+- name: Remove docker.io
+  become: true
+  apt:
+    name: docker.io
+    state: absent
