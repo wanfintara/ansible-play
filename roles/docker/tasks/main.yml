@@ -23,3 +23,20 @@
   apt:
     name: docker.io
     state: absent
+
+- name: Install docker
+  become: true
+  apt: 
+    name: docker.io
+    state: latest
+
+- name: Start docker service
+  service:
+    name: docker
+    state: started
+
+# Start docker service on boot
+- name: Enable docker service
+  service:
+    name: docker
+    enabled: yes
