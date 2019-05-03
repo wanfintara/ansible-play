@@ -9,5 +9,14 @@
     - boto
     - consul-template
     - consul
+  vars:
+    bind_ip: 11.11.11.11
+    consul_node_name: consul-server-master
+    consul_dc_name: angloo-dc
+    consul_configuration: consul.server.json.j2
+    consul_service_configuration: consul.server.service.j2
+    client_nodes:
+      - 11.11.11.12
+      - 11.11.11.13
   vars_files: 
     - secret.yml
