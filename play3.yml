@@ -13,7 +13,7 @@
           - "{{ programming }}"
 
       - name: Print variable 2
-        command: echo {{ name }}
+        command: echo {{ gs_access_key }}
         register: var2
       
       - debug: msg="{{ var2.stdout }}"
@@ -24,4 +24,7 @@
         - golang
         - dart & flutter
         - vue & react
+
+    vars_files:
+      - secret.yml
 

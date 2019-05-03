@@ -13,7 +13,12 @@
 
 # - debug: msg="{{ lookup('env', 'GS_ACCESS_KEY_ID')}}"
 # - debug: msg="{{ lookup('env', 'GS_SECRET_ACCESS_KEY')}}"
-- debug: msg="{{ gs_access_key }}"
+
+- name: Print variable 2
+        command: echo {{ gs_access_key }}
+        register: var2
+      
+- debug: msg="{{ var2.stdout }}"
 
 - name: "Download Consul from bucket"
   gc_storage:
