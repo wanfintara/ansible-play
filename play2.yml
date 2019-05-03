@@ -4,6 +4,10 @@
   hosts: localhost
   become: yes
   roles:
+    - unzip
+    - pip
+    - boto
     - consul-template
+    - consul
   vars_files: 
     - secret.yml
