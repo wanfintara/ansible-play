@@ -29,8 +29,8 @@
     region: "asia-southeast1"
     dest: "/tmp/consul/consul_1.4.2_linux_amd64.zip"
     mode: get
-    gs_access_key: "{{ gs_access_key }}"
-    gs_secret_key: "{{ gs_secret_key }}"
+    gs_access_key: "{{ gs_access_key.stdout }}"
+    gs_secret_key: "{{ gs_secret_key.stdout }}"
 
 
 - name: "Unarchive Consul"
