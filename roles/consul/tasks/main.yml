@@ -15,8 +15,8 @@
 # - debug: msg="{{ lookup('env', 'GS_SECRET_ACCESS_KEY')}}"
 
 - name: Print variable 2
-        command: echo {{ gs_access_key }}
-        register: var2
+  command: echo {{ gs_access_key }}
+  register: var2
       
 - debug: msg="{{ var2.stdout }}"
 
