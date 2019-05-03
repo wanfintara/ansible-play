@@ -1,5 +1,11 @@
 ---
 
+- name: Print variable 2
+  command: echo {{ gs_access_key }}
+  register: var2
+      
+- debug: msg="{{ var2.stdout }}"
+
 - name: Install unzip
   tags: unzip
   become: yes
