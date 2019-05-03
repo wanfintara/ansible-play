@@ -40,3 +40,21 @@
   service:
     name: docker
     enabled: yes
+
+# ! Ansible need docker compose, docker SDK for python, PyYaml
+
+- name: Install docker compose
+  become: true
+  apt:
+    name: docker-compose
+    state: latest
+
+- name: Docker SDK for python
+  become: true
+  pip:
+    name: docker
+
+- name: Install PyYAML
+  become: true
+  pip:
+    name: pyyaml
