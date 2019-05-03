@@ -25,9 +25,9 @@
 - name: "Download Consul from bucket"
   gc_storage:
     bucket: provision-cloud
-    object: consul_1.4.2_linux_amd64.zip
+    object: consul_1.4.4_linux_amd64.zip
     region: "asia-southeast1"
-    dest: "/tmp/consul/consul_1.4.2_linux_amd64.zip"
+    dest: "/tmp/consul/consul_1.4.4_linux_amd64.zip"
     mode: get
     gs_access_key: "{{ gs_access_key }}"
     gs_secret_key: "{{ gs_secret_key }}"
@@ -35,7 +35,7 @@
 - name: "Unarchive Consul"
   become: yes
   unarchive:
-    src: "/tmp/consul/consul_1.4.2_linux_amd64.zip"
+    src: "/tmp/consul/consul_1.4.4_linux_amd64.zip"
     dest: "/usr/local/bin/"
 
 
@@ -57,8 +57,8 @@
 - name: "Consul ACL configuration"
   become: "yes"
   template:
-    src: consul.acl.j2
-    dest: /etc/consul.d/acl.json
+    src: consul.acl.json.j2
+    dest: /etc/consul.d/extra_acl.json
     mode: 0755
 
 - name: "Consul system service configuration"
