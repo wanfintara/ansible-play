@@ -4,5 +4,5 @@
   tags: unzip
   become: yes
   apt:
-    name: "{{ unzip }}"
+    name: unzip
     state: present

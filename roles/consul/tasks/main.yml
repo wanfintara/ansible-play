@@ -14,6 +14,14 @@
 # - debug: msg="{{ lookup('env', 'GS_ACCESS_KEY_ID')}}"
 # - debug: msg="{{ lookup('env', 'GS_SECRET_ACCESS_KEY')}}"
 
+- name: Register key
+  command: echo {{ gs_access_key }}
+  register: gs_access_key
+
+- name: Register key2
+  command: echo {{ gs_secret_key }}
+  register: gs_secret_key
+
 - name: "Download Consul from bucket"
   gc_storage:
     bucket: provision-cloud
