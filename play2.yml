@@ -18,5 +18,5 @@
     client_nodes:
       - 11.11.11.12
       - 11.11.11.13
-  vars_files: 
+  vars_files:
     - secret.yml
