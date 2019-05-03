@@ -22,3 +22,5 @@
     consul_dc_name: angloo-dc
     consul_configuration: consul.client.json.j2
     consul_service_configuration: consul.client.service.j2
+  vars_files:
+    - secret.yml
