@@ -15,8 +15,8 @@
     region: "asia-southeast1"
     dest: "/tmp/consul/consul-template_0.20.0_linux_amd64.zip"
     mode: get
-    gs_access_key: "{{ lookup('env', 'GS_ACCESS_KEY_ID') }}"
-    gs_secret_key: "{{ lookup('env', 'GS_SECRET_ACCESS_KEY') }}"
+    gs_access_key: "{{ gs_access_key }}"
+    gs_secret_key: "{{ gs_secret_key }}"
 
 - name: Unzip consul template
   become: yes
