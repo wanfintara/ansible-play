@@ -57,8 +57,8 @@
 - name: "Consul ACL configuration"
   become: "yes"
   template:
-    src: consul.acl.json.j2
-    dest: /etc/consul.d/extra_acl.json
+    src: consul.acl.j2
+    dest: /etc/consul.d/extra_acl.hcl
     mode: 0755
 
 - name: "Consul system service configuration"
