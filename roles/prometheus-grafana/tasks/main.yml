@@ -3,4 +3,5 @@
     msg: "{{ playbook_dir }}/dockerfiles"
 
 - name: Docker Compose Prometheus and Grafana
-  command: "sudo docker-compose -f {{ playbook_dir }}/dockerfiles/df-prometheus-grafana.yml up -d"
+  become_user: vagrant
+  command: "docker-compose -f {{ playbook_dir }}/dockerfiles/df-prometheus-grafana.yml up -d"
