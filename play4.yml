@@ -3,6 +3,7 @@
 - name: Install Docker
   hosts: localhost
   roles:
+    - pip
     - docker
 
     
