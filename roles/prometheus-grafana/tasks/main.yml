@@ -1,6 +1,6 @@
 ---
-- debug:
-    msg: "{{ playbook_dir }}/dockerfiles"
+# - debug:
+#     msg: "{{ playbook_dir }}/dockerfiles"
 
 - name: Prometheus
   docker_compose:
