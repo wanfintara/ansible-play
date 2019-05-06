@@ -18,6 +18,16 @@
     name: docker.io
     state: latest
 
+- name: Ensure group "docker" exists
+  become: yes
+  group:
+    name: docker
+    state: present
+
+- name: Add your user to the docker group
+  become: yes
+  command: "usermod -aG docker $USER"
+
 - name: Start docker service
   service:
     name: docker
