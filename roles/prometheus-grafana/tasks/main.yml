@@ -1,0 +1,8 @@
+---
+- debug:
+    msg: "{{ playbook_dir }}/dockerfiles"
+
+- name: Prometheus
+  docker_compose:
+    project_src: "{{ playbook_dir }}/dockerfiles"
+    project_name: df-prometheus-grafana.yml

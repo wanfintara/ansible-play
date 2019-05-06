@@ -1,0 +1,5 @@
+---
+- name: Deploy Prometheus + Grafana Container
+  hosts: localhost
+  roles:
+    - prometheus-grafana
