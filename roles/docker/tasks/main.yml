@@ -30,12 +30,14 @@
   command: "gpasswd -a vagrant docker"
 
 - name: Start docker service
+  become: yes
   service:
     name: docker
     state: started
 
 # Start docker service on boot
 - name: Enable docker service
+  become: yes
   service:
     name: docker
     enabled: yes
