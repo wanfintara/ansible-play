@@ -7,5 +7,4 @@
 #     project_name: df-prometheus-grafana.yml
 
 - name: Docker Compose Prometheus and Grafana
-  become: yes
-  shell: "docker-compose -f {{ playbook_dir }}/dockerfiles/df-prometheus-grafana.yml up"
+  command: "sudo docker-compose -f {{ playbook_dir }}/dockerfiles/df-prometheus-grafana.yml up"
