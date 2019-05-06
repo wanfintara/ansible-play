@@ -6,14 +6,14 @@
 #     update_cache: yes
 #     state: latest
 
-- name: install pip python2
+- name: Install pip python2
   become: yes
   apt:
     name: python-pip
     update_cache: yes
     state: latest
     
-- name: Upgrade pip
-  pip: 
-    name: pip
-    extra_args: --upgrade
+# - name: Upgrade pip
+#   pip: 
+#     name: pip
+#     extra_args: --upgrade
