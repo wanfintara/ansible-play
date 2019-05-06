@@ -15,12 +15,8 @@
 - name: Install docker & docker-compose
   become: true
   apt: 
-    name: "{{ packages }}"
+    name: docker.io
     state: latest
-  vars:
-    packages:
-      - docker.io
-      - docker-compose
 
 - name: Start docker service
   service:
@@ -39,6 +35,11 @@
   become: true
   pip:
     name: docker
+
+- name: Docker compose from pip
+  become: true
+  pip:
+    name: docker-compose
 
 - name: Install PyYAML
   become: true
