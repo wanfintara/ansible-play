@@ -1,11 +1,10 @@
 --- 
-
 version: "3.7"
 services:
   prometheus:
     image: prom/prometheus
     volumes: 
-      - /Users/wanfintara/Documents/ansible/ansible-play/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ~/ansible/ansible-play/dockerfiles/prometheus-config.yml:/etc/prometheus/prometheus.yml
     restart: always
     ports:
       - 9090:9090

@@ -1,34 +1,26 @@
 ---
-
-- name: Update and upgrade apt packages
-  become: true
-  apt:
-    upgrade: dist # equivalent apt-get not aptitude
-    update_cache: yes
-
 - name: Remove docker
   become: true
   apt:
-    name: docker
+    name: "{{ packages }}"
     state: absent
+    update_cache: yes
+  vars:
+    packages:
+      - docker
+      - docker-engine
+      - docker.io
+      - docker-compose
 
-- name: Remove docker-engine
-  become: true
-  apt:
-    name: docker-engine
-    state: absent
-
-- name: Remove docker.io
-  become: true
-  apt:
-    name: docker.io
-    state: absent
-
-- name: Install docker
+- name: Install docker & docker-compose
   become: true
   apt: 
-    name: docker.io
+    name: "{{ packages }}"
     state: latest
+  vars:
+    packages:
+      - docker.io
+      - docker-compose
 
 - name: Start docker service
   service:
@@ -42,12 +34,6 @@
     enabled: yes
 
 # ! Ansible need docker compose, docker SDK for python, PyYaml
-
-- name: Install docker compose
-  become: true
-  apt:
-    name: docker-compose
-    state: latest
 
 - name: Docker SDK for python
   become: true
