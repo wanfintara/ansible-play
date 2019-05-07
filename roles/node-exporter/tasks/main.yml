@@ -7,8 +7,9 @@
 
 - name: Unzip node exporter
   become: yes
-  unarchive: /tmp/node_exporter.tar.gz
-  dest: /usr/bin
+  unarchive: 
+    src: /tmp/node_exporter.tar.gz
+    dest: /usr/bin
 
 - name: Set permission consul template
   become: yes
