@@ -2,6 +2,29 @@
 - debug:
     msg: "{{ playbook_dir }}/dockerfiles"
 
-- name: Docker Compose Prometheus and Grafana
-  become_user: vagrant
-  command: "docker-compose -f {{ playbook_dir }}/dockerfiles/df-prometheus-grafana.yml up -d"
+# * Target to docker file
+# - name: Docker Compose Prometheus and Grafana
+#   become_user: vagrant
+#   command: "docker-compose -f {{ playbook_dir }}/dockerfiles/df-prometheus-grafana.yml up -d"
+
+- name: Prometheus Container
+  become: yes
+  docker_container:
+    name: prometheus
+    image: prom/prometheus
+    volumes:
+      - /etc/ansible/angloo-ansible/dockerfiles/prometheus-config.yml:/etc/prometheus/prometheus.yml
+    expose_ports:
+      - 8899
+    # ports:
+      # - 9090:9090
+
+- name: Grafane Container
+  become: yes
+  docker_container:
+    name: grafana
+    image: grafana/grafana
+    expose_ports:
+      - 9988
+    # ports:
+    #   - 9191:3000
