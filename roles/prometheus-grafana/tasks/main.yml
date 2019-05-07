@@ -14,17 +14,17 @@
     image: prom/prometheus
     volumes:
       - /etc/ansible/angloo-ansible/dockerfiles/prometheus-config.yml:/etc/prometheus/prometheus.yml
-    exposed_ports:
-      - 8899
-    # ports:
-      # - 9090:9090
+    # exposed_ports:
+    #   - 8899
+    ports:
+      - 9090:9090/tcp
 
 - name: Grafane Container
   become: yes
   docker_container:
     name: grafana
     image: grafana/grafana
-    exposed_ports:
-      - 9988
-    # ports:
-    #   - 9191:3000
+    # exposed_ports:
+    #   - 9988
+    ports:
+      - 9191:3000/tcp
