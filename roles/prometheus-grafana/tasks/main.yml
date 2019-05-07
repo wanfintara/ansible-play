@@ -14,7 +14,8 @@
     image: prom/prometheus
     volumes:
       # - /etc/ansible/angloo-ansible/dockerfiles/prometheus-config.yml:/etc/prometheus/prometheus.yml
-      - ~/ansible/ansible-play/dockerfiles/prometheus-config.yml:/etc/prometheus/prometheus.yml
+      # - ~/ansible/ansible-play/dockerfiles/prometheus-config.yml:/etc/prometheus/prometheus.yml
+      - /home/vagrant/ansible/ansible-play/dockerfiles/prometheus-config.yml:/etc/prometheus/prometheus.yml
     # exposed_ports:
     #   - 8899
     ports:
