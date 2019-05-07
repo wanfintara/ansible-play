@@ -9,13 +9,22 @@
   become: yes
   unarchive: 
     src: /tmp/node_exporter.tar.gz
-    dest: /usr/bin
+    dest: /tmp
 
-- name: Set permission consul template
+# Check the node_exporter exist or not, if exists the move it
+- name: Stat node_exporter
+  stat: path=/tmp/node_exporter-0.17.0.linux-amd64/node_exporter
+  register: node_exporter_stat
+
+- name: Move node exporter to usr/bin
+  command: mv /tmp/node_exporter-0.17.0.linux-amd64/node_exporter /usr/bin/node_exporter
+  when: node_exporter_stat.stat.exists
+
+- name: Set permission
   become: yes
   file: 
     path: /usr/bin/node_exporter
-    mode: "a+x"
+    mode: 0755
 
 - name: "Node Exporter system service configuration"
   become: "yes"
