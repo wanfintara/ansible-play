@@ -1,0 +1,37 @@
+---
+- name: Download node exporter
+  get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
+    dest: /tmp/node_exporter.tar.gz
+    checksum: d2e00d805dbfdc67e7291ce2d2ff151f758dd7401dd993411ff3818d0e231489
+
+- name: Unzip node exporter
+  become: yes
+  unarchive: /tmp/node_exporter.tar.gz
+  dest: /usr/bin
+
+- name: Set permission consul template
+  become: yes
+  file: 
+    path: /usr/bin/node_exporter
+    mode: "a+x"
+
+- name: "Node Exporter system service configuration"
+  become: "yes"
+  template:
+    src: "{{ service }}"
+    dest: /etc/systemd/system/node_exporter.service
+    mode: 0755
+
+- name: Start node exporter via systemd
+  become: yes
+  systemd:
+    name: node_exporter
+    state: started
+    daemon_reload: yes
+
+- name: Enable node exporter run on boot
+  become: yes
+  service:
+    name: node_exporter
+    enabled: yes

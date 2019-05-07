@@ -1,0 +1,5 @@
+---
+- name: Play Node Exporter
+  hosts: localhost
+  roles: 
+    - node-exporter

@@ -1,0 +1,11 @@
+[Unit]
+Description="Node Exporter"
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node_exporter
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
