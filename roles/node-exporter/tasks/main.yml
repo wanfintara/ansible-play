@@ -17,6 +17,7 @@
   register: node_exporter_stat
 
 - name: Move node exporter to usr/bin
+  become: yes
   command: mv /tmp/node_exporter-0.17.0.linux-amd64/node_exporter /usr/bin/node_exporter
   when: node_exporter_stat.stat.exists
 
