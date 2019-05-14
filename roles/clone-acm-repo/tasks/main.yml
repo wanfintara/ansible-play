@@ -19,6 +19,7 @@
     force: yes
 
 - name: Composer Install
+  become: yes
   composer:
     commond: install
     working_dir: /var/www/acm
