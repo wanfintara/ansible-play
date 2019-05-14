@@ -22,7 +22,7 @@ When starting __Deployment Guide__, there are some basic it is better to be know
 
 - the filename in `consul.d` doesn't really matter, can use any name, but remember consul will load it alphabetically
 
-## Install Consul Ubuntu
+## Install Ansible Ubuntu
 
 - sudo apt-add-repository ppa:ansible/ansible
 - sudo apt update

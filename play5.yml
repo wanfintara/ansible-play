@@ -6,3 +6,4 @@
     - nginx
     - php7.2
     - redis
+    - clone-acm-repo
