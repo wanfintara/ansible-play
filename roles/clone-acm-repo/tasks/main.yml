@@ -1,7 +1,7 @@
 ---
 - name: Create production directory
   become: yes
-  become_user: jenkins
+  become_user: root
   file:
     path: /var/www/acm
     state: directory
