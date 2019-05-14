@@ -1,7 +1,0 @@
----
-- name: Install software properties common
-  become: yes
-  apt:
-    name: software-properties-common
-    state: present
-    update_cache: yes

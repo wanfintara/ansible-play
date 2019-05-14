@@ -1,0 +1,24 @@
+---
+- name: Create production directory
+  become: yes
+  become_user: jenkins
+  file:
+    path: /var/www/acm
+    state: directory
+    mode: "u=rwX,g=rwX,o=rX"
+    owner: jenkins
+    group: www-data
+
+- name: Clone production git
+  become: yes
+  become_user: jenkins
+  git: 
+    dest: /var/www/acm
+    repo: https://gitlab.com/wanfintara/simple-login.git
+    # accept_hostkey: true
+    force: yes
+
+- name: Composer Install
+  composer:
+    commond: install
+    working_dir: /var/www/acm
