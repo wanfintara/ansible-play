@@ -18,19 +18,33 @@
     # accept_hostkey: true
     force: yes
 
-- name: Create vendor directory
+- name: Make Sure storage is exists and writable
   become: yes
-  become_user: root
   file:
-    path: /var/www/acm/vendor
+    path: /var/www/acm/storage
     state: directory
-    mode: "u=rwX,g=rwX,o=rX"
-    owner: jenkins
-    group: www-data
+
+- name: Laravel needs read and write access to the storage and bootstrap/cache folder (CHGRP)
+  become: yes
+  command: chgrp -R www-data /var/www/acm/storage /var/www/acm/bootstrap/cache
+
+- name: Laravel needs read and write access to the storage and bootstrap/cache folder (CHOWN)
+  become: yes
+  command: chmod -R ug+rwx /var/www/acm/storage /var/www/acm/bootstrap/cache
+
+# - name: Create vendor directory
+#   become: yes
+#   become_user: root
+#   file:
+#     path: /var/www/acm/vendor
+#     state: directory
+#     mode: "u=rwX,g=rwX,o=rX"
+#     owner: jenkins
+#     group: www-data
 
 - name: Composer Install
   become: yes
-  become_user: jenkins
+  # become_user: jenkins
   composer:
     commond: install
-    working_dir: /var/www/acm
+    working_dir: '/var/www/acm'
