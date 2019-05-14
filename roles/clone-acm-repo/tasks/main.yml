@@ -18,10 +18,19 @@
     # accept_hostkey: true
     force: yes
 
+- name: Create vendor directory
+  become: yes
+  become_user: root
+  file:
+    path: /var/www/acm/vendor
+    state: directory
+    mode: "u=rwX,g=rwX,o=rX"
+    owner: jenkins
+    group: www-data
+
 - name: Composer Install
   become: yes
   become_user: jenkins
-  become_method: sudo
   composer:
     commond: install
     working_dir: /var/www/acm
