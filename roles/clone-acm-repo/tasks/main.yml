@@ -20,6 +20,8 @@
 
 - name: Composer Install
   become: yes
+  become_user: jenkins
+  become_method: sudo
   composer:
     commond: install
     working_dir: /var/www/acm
