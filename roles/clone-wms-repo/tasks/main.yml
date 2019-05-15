@@ -5,7 +5,7 @@
   file:
     path: /var/www/acm
     state: directory
-    mode: "u=rwX,g=rwX,o=rX"
+    mode: 'ug+rwx,o+rx'
     owner: jenkins
     group: www-data
 
@@ -29,25 +29,9 @@
   file:
     path: /var/www/acm/storage
     state: directory
-    mode: 'ug+rwx, o-w'
+    mode: 'ug+rwx,o-w'
     recurse: yes
     group: www-data
-
-#   command: chgrp -R www-data /var/www/acm/storage /var/www/acm/bootstrap/cache
-
-# - name: Laravel needs read and write access to the storage and bootstrap/cache folder (CHOWN)
-#   become: yes
-#   command: chmod -R ug+rwx /var/www/acm/storage /var/www/acm/bootstrap/cache
-
-# - name: Create vendor directory
-#   become: yes
-#   become_user: root
-#   file:
-#     path: /var/www/acm/vendor
-#     state: directory
-#     mode: "u=rwX,g=rwX,o=rX"
-#     owner: jenkins
-#     group: www-data
 
 - name: Composer Install
   become: yes
