@@ -6,6 +6,8 @@
     path: /var/www/acm
     state: directory
     mode: 'ug+rwx,o+rx'
+    #* u -> user/owner, g -> group, o -> other
+    #* rwx -> read, write, execute
     owner: jenkins
     group: www-data
 
