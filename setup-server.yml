@@ -1,7 +1,8 @@
 ---
 
 - name: Setup server
-  hosts: localhost
+  hosts: jlf
+  ansible_connection: local
   roles:
     - nginx
     - php7.2
