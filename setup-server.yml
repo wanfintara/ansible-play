@@ -1,0 +1,8 @@
+---
+
+- name: Setup server
+  hosts: localhost
+  roles:
+    - nginx
+    - php7.2
+    - redis

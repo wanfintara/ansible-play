@@ -1,0 +1,5 @@
+---
+- name: Copy nginx configuration
+  become: yes
+  template:
+    
