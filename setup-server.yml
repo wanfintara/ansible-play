@@ -1,5 +1,4 @@
 ---
-
 - name: Setup server
   hosts: jlf
   ansible_connection: local
