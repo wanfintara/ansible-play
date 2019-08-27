@@ -5,6 +5,6 @@
   become: yes
   apt: 
     name: nginx 
-    state: present
+    state: latest
     upgrade: safe
-    update_cache: yes
+    # update_cache: yes
