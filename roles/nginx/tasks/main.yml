@@ -6,5 +6,6 @@
   apt: 
     name: nginx 
     state: latest
-    upgrade: safe
-    # update_cache: yes
+    # force: 
+    # upgrade: safe
+    update_cache: yes
