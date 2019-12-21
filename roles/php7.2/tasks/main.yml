@@ -19,3 +19,4 @@
       - php7.2-zip
       - php7.2-bcmath
       - php7.2
+      - php-curl

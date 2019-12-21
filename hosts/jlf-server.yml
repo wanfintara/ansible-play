@@ -1,7 +1,6 @@
 ---
 jlf:
   hosts:
-    
     backend:
       ansible_host: localhost
 
