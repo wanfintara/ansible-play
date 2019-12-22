@@ -1,0 +1,22 @@
+---
+- name: Php and dependencies
+  become: yes
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - composer
+      - mcrypt
+      - php7.1
+      - php7.1-cli
+      - php7.1-gd
+      - php7.1-fpm
+      - php7.1-mysql
+      - php7.1-mbstring
+      - php7.1-xml
+      - php7.1-zip
+      - php7.1-bcmath
+      - php7.1
+      - php-curl
